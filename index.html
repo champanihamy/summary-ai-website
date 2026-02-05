@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SummaryAI – Instant Text Summaries</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+
+    .hero-section {
+      padding: 6rem 0 4rem;
+      background: radial-gradient(circle at top left, #f3f5ff, #ffffff 55%);
+    }
+
+    .hero-badge {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-mockup {
+      background: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 18px 45px rgba(28, 34, 66, 0.18);
+      padding: 1.5rem;
+    }
+
+    .hero-mockup .pill {
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
+
+    .logo-strip {
+      opacity: 0.85;
+    }
+
+    .section-padding {
+      padding: 4.5rem 0;
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .use-case-badge {
+      font-size: 0.75rem;
+    }
+
+    .footer-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <span class="me-2 rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center"
+          style="width:32px;height:32px;font-size:0.9rem;">
+          S
+        </span>
+        SummaryAI
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#how-it-works">How it works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#use-cases">Use cases</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faq">FAQ</a>
+          </li>
+        </ul>
+        <a href="#demo" class="btn btn-primary ms-lg-3 mt-2 mt-lg-0">Get started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6">
+          <span class="badge bg-light text-primary hero-badge mb-3">
+            AI Summary Assistant &middot; Demo layout
+          </span>
+          <h1 class="display-5 fw-semibold mb-3">
+            Instant summaries from any text, article, or PDF.
+          </h1>
+          <p class="lead text-muted mb-4">
+            Turn long, messy content into clear, concise summaries with a single click.
+            Perfect for students, professionals, and anyone drowning in information.
+          </p>
+          <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2 mb-3">
+            <a href="#demo" class="btn btn-primary btn-lg">
+              Try it now
+            </a>
+            <button class="btn btn-outline-secondary btn-lg" type="button">
+              View placeholder demo
+            </button>
+          </div>
+          <p class="text-muted small mb-0">
+            No real backend wired up yet – all content on this page is dummy data and placeholders.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-mockup">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex gap-1">
+                <span class="rounded-circle bg-danger" style="width:10px;height:10px;"></span>
+                <span class="rounded-circle bg-warning" style="width:10px;height:10px;"></span>
+                <span class="rounded-circle bg-success" style="width:10px;height:10px;"></span>
+              </div>
+              <span class="badge bg-light text-secondary pill px-3">Summary preview</span>
+            </div>
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <div class="border rounded-3 p-3 h-100">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="fw-semibold small">Original text</span>
+                    <span class="badge bg-light text-secondary pill">Placeholder</span>
+                  </div>
+                  <p class="small text-muted mb-0">
+                    “This area represents the long text your users will paste or upload.
+                    Replace this with your actual input component when you connect your backend.”
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="border rounded-3 p-3 h-100 bg-light">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="fw-semibold small">AI summary</span>
+                    <span class="badge bg-success-subtle text-success pill">Sample</span>
+                  </div>
+                  <p class="small mb-2">
+                    This is a short, example summary generated from dummy text. It showcases the type of clear,
+                    scannable output your app can provide once wired to a real AI model.
+                  </p>
+                  <p class="small text-muted mb-0">
+                    You can replace this placeholder with live responses from your API.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO STRIP / SOCIAL PROOF -->
+  <section class="py-3 border-bottom">
+    <div class="container logo-strip">
+      <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 text-muted small text-uppercase">
+        <span>Trusted by teams at</span>
+        <span class="fw-semibold">PlaceholderCorp</span>
+        <span class="fw-semibold">Example Labs</span>
+        <span class="fw-semibold">Acme Research</span>
+        <span class="fw-semibold">Demo Studio</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-semibold mb-2">How it works</h2>
+        <p class="text-muted mb-0">
+          A simple three-step flow you can hook up to your AI summarization engine.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="h-100 text-center p-4 border rounded-4">
+            <div
+              class="feature-icon bg-primary-subtle text-primary mb-3 mx-auto">
+              1
+            </div>
+            <h5 class="mb-2">Paste or upload content</h5>
+            <p class="text-muted small mb-0">
+              Users drop in articles, PDFs, transcripts, or notes. This card is a visual placeholder for your future
+              upload / input UI.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="h-100 text-center p-4 border rounded-4">
+            <div
+              class="feature-icon bg-primary-subtle text-primary mb-3 mx-auto">
+              2
+            </div>
+            <h5 class="mb-2">Choose summary style</h5>
+            <p class="text-muted small mb-0">
+              Short bullet points, executive brief, or study notes —
+              this is placeholder copy describing the options your app will support.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="h-100 text-center p-4 border rounded-4">
+            <div
+              class="feature-icon bg-primary-subtle text-primary mb-3 mx-auto">
+              3
+            </div>
+            <h5 class="mb-2">Get a summary in seconds</h5>
+            <p class="text-muted small mb-0">
+              Here you’ll show how fast and clear the results are.
+              Replace this dummy description with your real value proposition.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section-padding bg-light">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6">
+          <h2 class="fw-semibold mb-3">Designed for clarity and speed</h2>
+          <p class="text-muted mb-4">
+            Use this section to highlight the core capabilities of your summary AI.
+            Everything here is placeholder text and can be swapped with your own copy and screenshots.
+          </p>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="d-flex align-items-start gap-3">
+                <span class="feature-icon bg-primary-subtle text-primary flex-shrink-0">
+                  <span class="fw-bold">A</span>
+                </span>
+                <div>
+                  <h6 class="mb-1">Multi-format input</h6>
+                  <p class="small text-muted mb-0">
+                    Placeholder feature: paste text, upload files, or provide URLs for your future engine.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="d-flex align-items-start gap-3">
+                <span class="feature-icon bg-primary-subtle text-primary flex-shrink-0">
+                  <span class="fw-bold">B</span>
+                </span>
+                <div>
+                  <h6 class="mb-1">Custom length & tone</h6>
+                  <p class="small text-muted mb-0">
+                    Short, medium, or long summaries with academic, casual, or professional tone – all sample labels.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="d-flex align-items-start gap-3">
+                <span class="feature-icon bg-primary-subtle text-primary flex-shrink-0">
+                  <span class="fw-bold">C</span>
+                </span>
+                <div>
+                  <h6 class="mb-1">One-click export</h6>
+                  <p class="small text-muted mb-0">
+                    Imagine copying to clipboard, exporting to docs, or sending to email from here.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="d-flex align-items-start gap-3">
+                <span class="feature-icon bg-primary-subtle text-primary flex-shrink-0">
+                  <span class="fw-bold">D</span>
+                </span>
+                <div>
+                  <h6 class="mb-1">History & bookmarks</h6>
+                  <p class="small text-muted mb-0">
+                    Placeholder for saved summaries so users can revisit important content later.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+              <span class="small fw-semibold text-muted">Screenshot placeholder</span>
+              <span class="badge bg-light text-secondary">Replace with UI</span>
+            </div>
+            <div class="card-body">
+              <div class="border rounded-3 p-3 mb-3 bg-light">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="small fw-semibold text-secondary">Input</span>
+                  <span class="small text-muted">Lorem ipsum demo text</span>
+                </div>
+                <div class="placeholder-wave">
+                  <span class="placeholder col-12 mb-1"></span>
+                  <span class="placeholder col-10 mb-1"></span>
+                  <span class="placeholder col-8"></span>
+                </div>
+              </div>
+              <div class="border rounded-3 p-3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="small fw-semibold text-secondary">Summary</span>
+                  <span class="badge bg-success-subtle text-success">Example</span>
+                </div>
+                <ul class="small text-muted mb-0">
+                  <li>Bullet-point summary using generic, placeholder content.</li>
+                  <li>Designed to show the structure of your real summaries.</li>
+                  <li>Swap this card for screenshots of your app once it’s built.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO / INTERACTIVE MOCKUP -->
+  <section id="demo" class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="text-center mb-4">
+            <h2 class="fw-semibold mb-2">Try the layout demo</h2>
+            <p class="text-muted mb-0">
+              This section is only a front-end mockup. Replace the placeholders with your real summarization logic.
+            </p>
+          </div>
+          <div class="card shadow-sm">
+            <div class="card-body p-4">
+              <div class="mb-3">
+                <label for="demoInput" class="form-label fw-semibold">Paste your text (placeholder only)</label>
+                <textarea class="form-control" id="demoInput" rows="5"
+                  placeholder="This textarea is just for show. In your real app, this is where users will paste their content."></textarea>
+              </div>
+              <div class="row g-3 align-items-end">
+                <div class="col-sm-6">
+                  <label for="summaryLength" class="form-label small text-uppercase text-muted mb-1">
+                    Summary length
+                  </label>
+                  <select id="summaryLength" class="form-select">
+                    <option selected>Short (1–3 sentences)</option>
+                    <option>Medium (1 paragraph)</option>
+                    <option>Detailed (multi-paragraph)</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label for="summaryTone" class="form-label small text-uppercase text-muted mb-1">
+                    Tone
+                  </label>
+                  <select id="summaryTone" class="form-select">
+                    <option selected>Neutral</option>
+                    <option>Professional</option>
+                    <option>Casual</option>
+                    <option>Academic</option>
+                  </select>
+                </div>
+              </div>
+              <div class="d-flex flex-column flex-sm-row gap-2 align-items-sm-center mt-4">
+                <button class="btn btn-primary btn-lg w-100 w-sm-auto" type="button" disabled>
+                  Generate summary (disabled demo)
+                </button>
+                <span class="small text-muted">
+                  Button disabled on purpose. Hook this up to your API later.
+                </span>
+              </div>
+              <hr class="my-4" />
+              <div>
+                <h6 class="mb-2">Sample output</h6>
+                <p class="small text-muted mb-1">
+                  Once connected, the summary will appear here. For now, this text shows a generic example:
+                </p>
+                <div class="border rounded-3 p-3 bg-light small">
+                  The original content is analyzed, key ideas are extracted, and a concise explanation is produced.
+                  Use this space to present the most important points in a way that’s quick to scan and easy to
+                  understand.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section id="use-cases" class="section-padding bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-semibold mb-2">Built for many workflows</h2>
+        <p class="text-muted mb-0">
+          Swap these cards with your own user personas and real-world examples.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+          <div class="h-100 border rounded-4 p-3">
+            <span class="badge bg-primary-subtle text-primary use-case-badge mb-2">Students</span>
+            <h6 class="mb-2">Study smarter</h6>
+            <p class="small text-muted mb-0">
+              Placeholder copy about turning chapters, research papers, and lecture notes into quick study guides.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="h-100 border rounded-4 p-3">
+            <span class="badge bg-primary-subtle text-primary use-case-badge mb-2">Professionals</span>
+            <h6 class="mb-2">Save meeting time</h6>
+            <p class="small text-muted mb-0">
+              Use summaries for reports, emails, and long documentation. All text here is a stand-in for your own copy.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="h-100 border rounded-4 p-3">
+            <span class="badge bg-primary-subtle text-primary use-case-badge mb-2">Researchers</span>
+            <h6 class="mb-2">Scan more papers</h6>
+            <p class="small text-muted mb-0">
+              Describe how your tool helps extract key findings, methods, and limitations from academic material.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="h-100 border rounded-4 p-3">
+            <span class="badge bg-primary-subtle text-primary use-case-badge mb-2">Creators</span>
+            <h6 class="mb-2">Repurpose content</h6>
+            <p class="small text-muted mb-0">
+              Explain how you turn podcasts, videos, or blog posts into short descriptions and shareable snippets.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="text-center mb-4">
+            <h2 class="fw-semibold mb-2">Frequently asked questions</h2>
+            <p class="text-muted mb-0">
+              All answers below are placeholders. Replace them with real details about your summary AI app.
+            </p>
+          </div>
+
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqOneHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqOneCollapse" aria-expanded="true" aria-controls="faqOneCollapse">
+                  Is this a real, working summary tool?
+                </button>
+              </h2>
+              <div id="faqOneCollapse" class="accordion-collapse collapse show" aria-labelledby="faqOneHeading"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Not yet. This page is a front-end layout demo using static HTML, Bootstrap, and placeholder text.
+                  You can connect it to your own APIs and AI models to make it fully functional.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqTwoHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqTwoCollapse" aria-expanded="false" aria-controls="faqTwoCollapse">
+                  What kinds of content will it support?
+                </button>
+              </h2>
+              <div id="faqTwoCollapse" class="accordion-collapse collapse" aria-labelledby="faqTwoHeading"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  You can customize this template to work with articles, PDFs, transcripts, internal documents, and
+                  more.
+                  The current text simply describes the potential – you decide what to actually implement.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqThreeHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqThreeCollapse" aria-expanded="false" aria-controls="faqThreeCollapse">
+                  How accurate will the summaries be?
+                </button>
+              </h2>
+              <div id="faqThreeCollapse" class="accordion-collapse collapse" aria-labelledby="faqThreeHeading"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Accuracy depends on the AI models and prompts you choose under the hood.
+                  Use this answer area to explain your approach to quality, evaluation, and human review.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqFourHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqFourCollapse" aria-expanded="false" aria-controls="faqFourCollapse">
+                  What about data privacy?
+                </button>
+              </h2>
+              <div id="faqFourCollapse" class="accordion-collapse collapse" aria-labelledby="faqFourHeading"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  This is sample text describing your future privacy policy.
+                  Update it with real information about how you store, process, and protect user data.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section-padding bg-primary text-white text-center">
+    <div class="container">
+      <h2 class="fw-semibold mb-3">Ready to build your own summary AI?</h2>
+      <p class="mb-4">
+        Use this single-page Bootstrap layout as a starting point. Plug in your branding, copy, and backend
+        integrations to make it your own.
+      </p>
+      <a href="#demo" class="btn btn-light btn-lg">
+        Start customizing the demo
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4 border-top bg-white">
+    <div class="container">
+      <div class="row align-items-center gy-3">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center">
+            <span
+              class="me-2 rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center"
+              style="width:28px;height:28px;font-size:0.8rem;">
+              S
+            </span>
+            <div>
+              <div class="fw-semibold">SummaryAI</div>
+              <div class="small text-muted">&copy; <span id="currentYear"></span> Placeholder Company. All rights
+                reserved.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex justify-content-md-end gap-3 small text-muted">
+            <a href="#" class="footer-link">Privacy</a>
+            <a href="#" class="footer-link">Terms</a>
+            <a href="#" class="footer-link">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS (for navbar + accordion) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    // Simple script to keep footer year up to date
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
+
+
